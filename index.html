@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-labelledby="app-title">
+      <section class="panel">
+        <header class="header">
+          <p class="eyebrow">Today</p>
+          <h1 id="app-title">To-do list</h1>
+          <p class="summary" id="task-summary">No tasks yet</p>
+        </header>
+
+        <form class="task-form" id="task-form">
+          <label class="sr-only" for="task-input">New task</label>
+          <input
+            id="task-input"
+            type="text"
+            autocomplete="off"
+            maxlength="90"
+            placeholder="Add a task..."
+          />
+          <button type="submit">Add</button>
+        </form>
+
+        <div class="toolbar" aria-label="Task filters">
+          <button class="filter is-active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="active">Active</button>
+          <button class="filter" type="button" data-filter="completed">Done</button>
+        </div>
+
+        <ul class="task-list" id="task-list" aria-live="polite"></ul>
+
+        <footer class="footer">
+          <span id="task-count">0 left</span>
+          <button class="ghost-button" type="button" id="clear-completed">
+            Clear done
+          </button>
+        </footer>
+      </section>
+    </main>
+
+    <template id="task-template">
+      <li class="task-item">
+        <label class="check-wrap">
+          <input class="task-check" type="checkbox" />
+          <span class="custom-check" aria-hidden="true"></span>
+        </label>
+        <input class="task-title" type="text" />
+        <button class="icon-button delete-button" type="button" aria-label="Delete task">
+          &times;
+        </button>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
